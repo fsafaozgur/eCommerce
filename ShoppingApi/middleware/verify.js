@@ -8,7 +8,7 @@ const verifyToken = async(req, res, next) => {
 
     if (!token) res.status(500).json({message: 'you are not logged in'})
 
-    jwt.verify(token, 'hebele61', (err, user) => {
+    jwt.verify(token, process.env.SECRET, (err, user) => {
 
         if (err) res.status(500).json('Token not valid')
             
